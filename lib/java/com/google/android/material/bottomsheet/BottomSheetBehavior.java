@@ -124,6 +124,25 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
   /** The bottom sheet is half-expanded (used when mFitToContents is false). */
   public static final int STATE_HALF_EXPANDED = 6;
 
+  //在进行实例演示之前，我们先介绍BottomSheet的五种状态：
+  //
+  //STATE_DRAGGING：手指在BottomSheet上下拖动从而使得布局跟着上下移动。
+  //STATE_SETTLING：当手指抬起之后，会根据当前的偏移量，决定是要将BottomSheet收起还是展开。
+  //这两种属于中间态，类似于ViewPager的SCROLL_STATE_DRAGGING和SCROLL_STATE_SETTLING。
+  //
+  //STATE_EXPANDED：展开。
+  //STATE_COLLAPSED：收起。
+  //STATE_HIDDEN：隐藏。
+  //
+  //这三种属于稳定态，当BottomSheet稳定下来，最终都会恢复到上面三种状态之一，展开很容易理解，需要区别的是收起和隐藏：
+  //
+  //隐藏：意味着整个底部布局完全不可见，默认情况下没有这种状态，需要设置app:behavior_hideable="true"
+  //收起：我们可以设置收起时的高度，让它仍然部分可见，并可以通过拖动这部分布局让它进入到展开状态，收起时的高度通过app:behavior_peekHeight设置。
+  //
+  //作者：泽毛
+  //链接：https://www.jianshu.com/p/2a5be29123e5
+  //来源：简书
+  //著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
   /** @hide */
   @RestrictTo(LIBRARY_GROUP)
   @IntDef({
